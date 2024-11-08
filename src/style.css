@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Figtree:ital,wght@0,300..900;1,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+h1{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: antiquewhite;
+}
+
+/* progress bar start */
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* body {
+    font-family: "Muli", sans-serif;
+    background-color: #f6f7fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+  } */
+  
+  /* .container {
+    text-align: center;
+  
+  } */
+  
+  .progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 0px;
+    max-width: 100%;
+    width: 60vw;
+    top:50%;
+    left:40%;
+    transform:translateX(-50%)
+  }
+  
+
+
+   .field-container {
+    margin-bottom: 10px;
+}
+
+  .progress-container::before {
+    content: ""; /* Mandatory with ::before */
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 16.5%;
+    z-index: -1;
+    transition: 0.4s ease;
+  }
+  
+  .circle {
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty);
+    transition: 0.4s ease;
+  }
+  
+  .circle.active {
+    border-color: var(--line-border-fill);
+  }
+  
+  .btn {
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .btn:focus {
+    outline: 0;
+  }
+  
+  .btn:disabled {
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+  }
+/* progress bar end */
+
+
+/* certifactions */
