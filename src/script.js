@@ -34,49 +34,108 @@ next.forEach((button) => {
     });
 });
 
-
-
-//nitialize Quill editor for des styling
+// Initialize Quill editor for des styling
 const quil = new Quill('.edit', {
-    theme:'snow'
+    theme: 'snow'
 });
 const quill = new Quill('.editor', {
-  theme: 'snow'
+    theme: 'snow'
 });
 
-// addEmailButton.onclick = addEmailField;
-
-// uplading photo in form 
-// var loadFile = function(event) {
-            
-//     var input = event.target;
-//     var file = input.files[0];
-//     var type = file.type;
-
-//    var output = document.getElementById('preview_img');
-
-
-//     output.src = URL.createObjectURL(event.target.files[0]);
-//     output.onload = function() {
-//         URL.revokeObjectURL(output.src) // free memory
-//     }
-// };
-
+// Uploading photo in form 
 function loadFile(event) {
     var reader = new FileReader();
     reader.onload = function() {
-      var imgElement = document.getElementById('preview_img');
-      imgElement.src = reader.result;  // Update the image source to the uploaded image
-  
-      // Ensure the image maintains the same size as the container
-      imgElement.style.objectFit = 'cover';  // Ensures the image fills the container without distorting
-      imgElement.style.width = '100px';
-      imgElement.style.height = '100px';
-      imgElement.style.overflow = 'hidden';
+        var imgElement = document.getElementById('preview_img');
+        imgElement.src = reader.result;  // Update the image source to the uploaded image
+
+        // Ensure the image maintains the same size as the container
+        imgElement.style.objectFit = 'cover';  // Ensures the image fills the container without distorting
+        imgElement.style.width = '100px';
+        imgElement.style.height = '100px';
+        imgElement.style.overflow = 'hidden';
     }
     reader.readAsDataURL(event.target.files[0]);  // Read the uploaded file as a data URL
-  }
-// end of photo upload
+}
+
+
+
+
+
+
+
+
+
+//----------------------------personal infos------------------------------------------
+let profilePercture = document.getElementById("profilePic"); // for file input
+let fullName = document.getElementById("fullName");
+let email = document.getElementById("email");
+let adress = document.getElementById("street-address");
+let phoneNumber = document.getElementById("phone-input");
+let summary = quill  // or quill.getText() for plain text
+//----------------------------personal infos end------------------------------------------
+
+
+
+//----------------------------experience infos------------------------------------------
+let jobName = document.getElementById("experienceName");
+let companyName = document.getElementById("companyName");
+let startDateEx = document.getElementById("Start-date-exp");
+let endDateEx = document.getElementById("End-date-exp");
+let exDescription = quill;//need to fix
+//----------------------------experience infos end------------------------------------------
+
+
+
+//----------------------------education infos------------------------------------------
+let schoolName = document.getElementById("shcoolname");
+let majorName = document.getElementById("majorname");
+let degree = document.getElementById("degree");
+let startDateEdu = document.getElementById("start-date-edu");
+let endDateEdu = document.getElementById("end-date-edu");
+//----------------------------education infos end------------------------------------------
+
+
+//----------------------------certificats infos------------------------------------------
+let certificatName = document.getElementById("certificat-name");
+let StartDateCer = document.getElementById("Start-date-cer");
+let endDateCe = document.getElementById("end-date-cer");
+let addCertificatCountainer = document.getElementById("addCertificatCountainer");
+let dateCertificatCountainer = document.getElementById("dateCertificatContainer");//showing date
+let deletecertificat = document.getElementById("deleteCertificat");//delete certificat
+//----------------------------certificats infos end------------------------------------------
+
+
+//----------------------------skills infos  ------------------------------------------
+let skillName = document.getElementById("skillName");
+// let deleteSkill = document.getElementById("delete-skill");//to delete a skillS
+// let addNewSkill = document.getElementById("add-skill");//add a skill
+let addSkillsContainer = document.getElementById("addskillsCountainer");
+
+//----------------------------skills infos end------------------------------------------
+
+
+//----------------------------language infos  ------------------------------------------
+let language = document.getElementById("language");
+let level = document.getElementById("level");
+// let deleteLanguage = document.getElementById("deleteLanguag");
+// let addLanguageContainer = document.getElementById("addLanguageContainer");
+
+//----------------------------language infos end------------------------------------------
+
+
+
+
+let downloadBtn = document.getElementById("downloadBtnCountainer");
+downloadBtn.style.display = 'none';//button downlaod
+
+
+
+
+
+
+
+
 
 
 // Get all sections by their IDs or classes
@@ -91,12 +150,11 @@ let downloadSection = document.getElementById("downloadSection");
 
 // Function to display the correct section based on count
 function display() {
-    
     // Hide all sections first
     allSections.forEach((section) => {
         section.style.display = "none";
     });
-  
+
     // Display the section corresponding to the current count
     switch (count) {
         case 1:
@@ -122,7 +180,6 @@ function display() {
             break;
         default:
             alert("You have completed the form");
-            // Prevents going past the last section
             break;
     }
 }
@@ -130,189 +187,587 @@ function display() {
 // Initial display to show the first section
 display();
 
+// Stocking data
+let resumeData;
+if (localStorage.resume != null) {
+    resumeData = JSON.parse(localStorage.resume);
+} else {
+    resumeData = [];
+}
+
+let submitit = submitSection6.addEventListener('click', function() {
+    let personalSection = {
+        image: profilePercture.files[0],
+        fullName: fullName.value,
+        email: email.value,
+        adress: adress.value,
+        phoneNumber: phoneNumber.value,
+        summary: quill.root.innerHTML,
+
+        jobName: jobName.value,
+        companyName: companyName.value,
+        startExperience: startDateEx.value,
+        endExperience: endDateEx.value,
+        experienceDescription: quill.root.innerHTML,
+
+        schoolName: schoolName.value,
+        majorName: majorName.value,
+        startEducation: startDateEdu.value,
+        endEducation: endDateEdu.value,
+        degree: degree.value,
+
+        certificatName: certificatName.value,
+        StartDateCer: StartDateCer.value,
+        endDateCe: endDateCe.value,
+
+        skillName: skillName.value,
+
+        language: language.value,
+        level: level.value,
+    }
+    resumeData.push(personalSection);
+    localStorage.setItem('resume', JSON.stringify(resumeData));
+});
+
+// Experience add
+let formCounter = 1; // Keep track of the form number
+function addForm1(event) {
+    event.preventDefault();
+    const jobName = document.getElementById("experienceName").value;
+    const formContainer = document.createElement("div");
+    formContainer.className = "form-container";
+    formContainer.innerHTML = `
+        <div class="flex border-solid border-2 border-sky-500 p-2 rounded-md mt-2 items-center justify-between">
+            <div class="flex">
+                <p class="mr-2">${jobName}</p>
+            </div>
+            <div onclick="removeForm1(this)">
+                <i class="fa-solid fa-trash text-rose-500"></i>
+            </div>
+        </div>`;
+    document.getElementById("displayElement").appendChild(formContainer);
+}
+
+function removeForm1(button) {
+    button.parentElement.remove();
+}
+
+// Education add
+function addForm2(event) {
+    event.preventDefault();
+    const schoolName = document.getElementById("shcoolname").value;
+    const majorName = document.getElementById("majorname").value;
+    const degree = document.getElementById("degree").value;
+
+    const formContainer = document.createElement("div");
+    formContainer.className = "form-container";
+    formContainer.innerHTML = `
+        <div class="flex border-solid border-2 border-sky-500 p-2 rounded-md mt-2 items-center justify-between">
+            <div class="flex">
+                <p class="mr-2">${schoolName}</p>
+                <p class="mr-2">${majorName}</p>
+                <p class="mr-2">${degree}</p>
+            </div>
+            <div onclick="removeForm2(this)">
+                <i class="fa-solid fa-trash text-rose-500"></i>
+            </div>
+        </div>`;
+    document.getElementById("displayElement2").appendChild(formContainer);
+}
+
+function removeForm2(button) {
+    button.parentElement.remove();
+}
+
+// Certificate add
+function addForm3(event) {
+    event.preventDefault();
+
+    const certificateName = document.getElementById("certificat-name").value;
+    const certificateDate = document.getElementById("Start-date-cer").value;
+
+    const formContainer = document.createElement("div");
+    formContainer.className = "form-container";
+    formContainer.innerHTML = `
+        <div class="flex border-solid border-2 border-sky-500 p-2 rounded-md mt-2 items-center justify-between">
+            <div class="flex">
+                <p class="mr-2">${certificateName}</p>
+                <p class="mr-2">${certificateDate}</p>
+            </div>
+            <div onclick="removeForm3(this)">
+                <i class="fa-solid fa-trash text-rose-500"></i>
+            </div>
+        </div>`;
+    document.getElementById("displayElement3").appendChild(formContainer);
+}
+
+function removeForm3(button) {
+    button.parentElement.remove();
+}
+
+// Skills add
+function addForm4(event) {
+    event.preventDefault();
+
+    // Ensure skillName exists and has the correct value
+    const skillInput = document.getElementById("skillName");  // Assuming you have this input field in your HTML
+    if (skillInput && skillInput.value) {
+        const formContainer = document.createElement("div");
+        formContainer.className = "form-container";
+        formContainer.innerHTML = `
+        <div class="flex border-solid border-2 border-sky-500 p-2 rounded-md mt-2 items-center justify-between">
+            <div class="flex">
+                <p class="mr-2">${skillInput.value}</p>
+            </div>
+            <div onclick="removeForm4(this)">
+                <i class="fa-solid fa-trash text-rose-500"></i>
+            </div>
+        </div>`;
+
+        document.getElementById("displayElement4").appendChild(formContainer);
+        skillInput.value = "";  // Clear the input after adding the skill
+    } else {
+        alert("Please enter a skill.");
+    }
+}
+
+// Remove skill
+function removeForm4(button) {
+    button.parentElement.remove();
+}
+
+// Languages add
+
+function addForm5(event) {
+    event.preventDefault();
+
+    // Ensure both language and level inputs exist and have correct values
+    const languageInput = document.getElementById("language");  // Assuming you have this input field in your HTML
+    const levelInput = document.getElementById("level");  // Assuming you have this input field in your HTML
+    if (languageInput && levelInput && languageInput.value && levelInput.value) {
+        const formContainer = document.createElement("div");
+        formContainer.className = "form-container";
+        formContainer.innerHTML = `
+        <div class="flex border-solid border-2 border-sky-500 p-2 rounded-md mt-2 items-center justify-between">
+            <div class="flex">
+                <p class="mr-2">${languageInput.value} - ${levelInput.value}</p>
+            </div>
+            <div onclick="removeForm5(this)">
+                <i class="fa-solid fa-trash text-rose-500"></i>
+            </div>
+        </div>`;
+
+        document.getElementById("displayElement5").appendChild(formContainer);
+        languageInput.value = "";  // Clear the language input after adding
+        levelInput.value = "";  // Clear the level input after adding
+
+        resumeData.push(personalSection);
+    localStorage.setItem('resume', JSON.stringify(resumeData));
 
 
-//----------------------------personal infos------------------------------------------
-let profilePercture = document.getElementById("profilePic"); // for file input
-let fullName = document.getElementById("fullName");
-let email = document.getElementById("email");
-let adress = document.getElementById("street-address");
-let phoneNumber = document.getElementById("phone-input");
-let summary = quill  // or quill.getText() for plain text
+    } else {
+        alert("Please enter both language and level.");
+    }
+}
+
+// Remove language
+function removeForm5(button) {
+    button.parentElement.remove();
+}
+
+
+////testing =================================================
+
+function displayCv(event) {
+    event.preventDefault();
+
+ let creatcv = document.getElementById('createresumebtn');
+ creatcv.style.display = 'none';
+
+//    resumeData.personalSection;
+// let profilePercture = document.getElementById("profilePic").value; // for file input
+let fullName = document.getElementById("fullName").value;
+let email = document.getElementById("email").value;
+// let adress = document.getElementById("street-address").value;
+let phoneNumber = document.getElementById("phone-input").value;
+let summary = quill.getText()  // or quill.getText() for plain text
 //----------------------------personal infos end------------------------------------------
 
 
 
 //----------------------------experience infos------------------------------------------
-let jobName = document.getElementById("experienceName");
-let companyName = document.getElementById("companyName");
-let startDateEx = document.getElementById("Start-date-exp");
-let endDateEx = document.getElementById("End-date-exp");
-// let exDescription = document.getElementById("editor").value;//need to fix
+let jobName = document.getElementById("experienceName").value;
+let companyName = document.getElementById("companyName").value;
+let startDateEx = document.getElementById("Start-date-exp").value;
+let endDateEx = document.getElementById("End-date-exp").value;
+let exDescription = quill.getText();//need to fix
 //----------------------------experience infos end------------------------------------------
 
 
 
 //----------------------------education infos------------------------------------------
-let schoolName = document.getElementById("shcoolname");
-let majorName = document.getElementById("majorname");
-let degree = document.getElementById("degree");
-let startDateEdu = document.getElementById("start-date-edu");
-let endDateEdu = document.getElementById("end-date-edu");
+let schoolName = document.getElementById("shcoolname").value;
+let majorName = document.getElementById("majorname").value;
+let degree = document.getElementById("degree").value;
+let startDateEdu = document.getElementById("start-date-edu").value;
+let endDateEdu = document.getElementById("end-date-edu").value;
 //----------------------------education infos end------------------------------------------
 
 
 //----------------------------certificats infos------------------------------------------
-let certificatName = document.getElementById("certificat-name");
-let StartDateCer = document.getElementById("Start-date-cer");
-let endDateCe = document.getElementById("end-date-cer");
-let addCertificatCountainer = document.getElementById("addCertificatCountainer");
-let dateCertificatCountainer = document.getElementById("dateCertificatContainer");//showing date
-let deletecertificat = document.getElementById("deleteCertificat");//delete certificat
+// let certificatName = document.getElementById("certificat-name").value;
+// let StartDateCer = document.getElementById("Start-date-cer").value;
+// let endDateCe = document.getElementById("end-date-cer").value;
+// let addCertificatCountainer = document.getElementById("addCertificatCountainer").value;
+// let dateCertificatCountainer = document.getElementById("dateCertificatContainer").value;//showing date
+// let deletecertificat = document.getElementById("deleteCertificat").value;//delete certificat
 //----------------------------certificats infos end------------------------------------------
 
 
 //----------------------------skills infos  ------------------------------------------
-let skillName = document.getElementById("skill-name");
-let deleteSkill = document.getElementById("delete-skill");//to delete a skillS
-let addNewSkill = document.getElementById("add-skill");//add a skill
-let addSkillsContainer = document.getElementById("addskillsCountainer");
+let skillName = document.getElementById("skillName").value;
+// let deleteSkill = document.getElementById("delete-skill");//to delete a skillS
+// let addNewSkill = document.getElementById("add-skill");//add a skill
+// let addSkillsContainer = document.getElementById("addskillsCountainer").value;
 
 //----------------------------skills infos end------------------------------------------
 
 
 //----------------------------language infos  ------------------------------------------
-let language = document.getElementById("language-name");
-let level = document.getElementById("level");
-let deleteLanguage = document.getElementById("deleteLanguag");
-let addLanguageContainer = document.getElementById("addLanguageContainer");
+// let language = document.getElementById("language").value;
+// let level = document.getElementById("level").value;
+// let deleteLanguage = document.getElementById("deleteLanguag");
+// let addLanguageContainer = document.getElementById("addLanguageContainer");
 
 //----------------------------language infos end------------------------------------------
-
-
-
-//------------------------------section buttons-------------------------------------------
-let submitSection1 = document.getElementById('submitSection1');
-let prevSection1 = document.getElementById('prevSection1');
-
-let submitSection2 = document.getElementById('submitSection2');
-let prevSection2 = document.getElementById('prevSection2');
-
-let submitSection3 = document.getElementById('submitSection3');
-let prevSection3 = document.getElementById('prevSection3');
-
-let submitSection4 = document.getElementById('submitSection4');
-let prevSection4 = document.getElementById('prevSection4');
-
-let submitSection5 = document.getElementById('submitSection5');
-let prevSection5 = document.getElementById('prevSection5');
-
-let submitSection6 = document.getElementById('submitSection6');
-let prevSection6 = document.getElementById('prevSection6');
-
-let download = document.getElementById('downloadBtn');
-//------------------------------section buttons end-------------------------------------------
+    // Ensure both language and level inputs exist and have correct values
+   // Assuming you have this input field in your HTML
 
 
 
 
-//stocking data
-let resumeData;
-if(localStorage.resume != null){
-    resumeData = JSON.parse(localStorage.resume)
-}else{
-    resumeData = [];
+
+
+
+//    let radioSelect1 =   document.getElementById('radio1').value;
+//    let radioSelect2 =   document.getElementById('radio2').value;
+
+   let radioselected = document.querySelector('input[name="default-radio"]:checked').value;
+console.log(radioselected)
+       downloadBtn.style.display = 'block';
+       downloadBtn.style.width = '200px';
+       
+       if(radioselected == 'classic cv'){
+          
+            
+        const formContainer = document.createElement("div");
+        formContainer.className = "form-container";
+        formContainer.innerHTML = `
+        <div id="inner">
+          
+            <div id="hd">
+              <div class="yui-gc">
+                <div class="yui-u first">
+                  <h1>${fullName}</h1>
+                  <h2>${jobName}</h2>
+                </div>
+        
+                <div class="yui-u">
+                  <div class="contact-info">
+                    
+                    <h3><a href="mailto:name@yourdomain.com">${email}</a></h3>
+                    <h3>${phoneNumber}</h3>
+                  </div><!--// .contact-info -->
+                </div>
+              </div><!--// .yui-gc -->
+            </div><!--// hd -->
+        
+            <div id="bd">
+              <div id="yui-main">
+                <div class="yui-b">
+        
+                  <div class="yui-gf">
+                    <div class="yui-u first">
+                      <h2>Profile</h2>
+                    </div>
+                    <div class="yui-u">
+                      <p class="enlarge">
+                      ${summary}
+                      </p>
+                    </div>
+                  </div><!--// .yui-gf -->
+        
+                  <div class="yui-gf">
+                    <div class="yui-u first">
+                      <h2>Skills</h2>
+                    </div>
+                    <div class="yui-u">
+        
+                        <div class="talent">
+                          <h2>${skillName}</h2>
+                          <p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
+                        </div>
+        
+                        <div class="talent">
+                          <h2>${skillName}</h2>
+                          <p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
+                        </div>
+        
+                        <div class="talent">
+                          <h2>Project Direction</h2>
+                          <p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
+                        </div>
+                    </div>
+                  </div><!--// .yui-gf -->
+        
+                  <div class="yui-gf">
+                    <div class="yui-u first">
+                      <h2>Technical</h2>
+                    </div>
+                    <div class="yui-u">
+                      <ul class="talent">
+                        <li>XHTML</li>
+                        <li>CSS</li>
+                        <li class="last">Javascript</li>
+                      </ul>
+        
+                      <ul class="talent">
+                        <li>Jquery</li>
+                        <li>PHP</li>
+                        <li class="last">CVS / Subversion</li>
+                      </ul>
+        
+                      <ul class="talent">
+                        <li>OS X</li>
+                        <li>Windows XP/Vista</li>
+                        <li class="last">Linux</li>
+                      </ul>
+                    </div>
+                  </div><!--// .yui-gf-->
+        
+                  <div class="yui-gf">
+          
+                    <div class="yui-u first">
+                      <h2>Experience</h2>
+                    </div><!--// .yui-u -->
+        
+                    <div class="yui-u">
+        
+                      <div class="job">
+                        <h2>${companyName}k</h2>
+                        <h3>${jobName}</h3>
+                        <h4>${startDateEx} - ${endDateEx}</h4>
+                        <p>${exDescription}</p>
+                      </div>
+        
+                      <div class="job">
+                        <h2>${companyName}k</h2>
+                        <h3>${jobName}</h3>
+                        <h4>${startDateEx} - ${endDateEx}</h4>
+                        <p>${exDescription}</p>
+                      </div>
+        
+                      <div class="job">
+                        <h2>${companyName}k</h2>
+                        <h3>${jobName}</h3>
+                        <h4>${startDateEx} - ${endDateEx}</h4>
+                        <p>${exDescription}</p>
+                      </div>
+        
+        
+                      <div class="job last">
+                        <h2>${companyName}k</h2>
+                        <h3>${jobName}</h3>
+                        <h4>${startDateEx} - ${endDateEx}</h4>
+                        <p>${exDescription}</p>
+                      </div>
+        
+                    </div><!--// .yui-u -->
+                  </div><!--// .yui-gf -->
+        
+        
+                  <div class="yui-gf last">
+                    <div class="yui-u first">
+                      <h2>Education</h2>
+                    </div>
+                    <div class="yui-u">
+                      <h2>${schoolName}  |${startDateEdu}-${endDateEdu}</h2>
+                      <h3>${majorName}&mdash; <strong>${degree}</strong> </h3>
+                    </div>
+                  </div><!--// .yui-gf -->
+        
+        
+                </div><!--// .yui-b -->
+              </div><!--// yui-main -->
+            </div><!--// bd -->
+        
+            <div id="ft">
+              <p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) - 867-5309</p>
+            </div><!--// footer -->
+        
+          </div><!-- // inner -->
+        `;
+
+        document.getElementById("doc2").appendChild(formContainer);
+
+       }else if(radioselected == 'modernCv'){
+           
+            
+        const formContainer = document.createElement("div");
+        formContainer.className = "form-container";
+        formContainer.innerHTML = `
+       <div class="cv-container">
+        <div class="left-column">
+          <img class="portait" src="https://www.codeur.com/tuto/wp-content/uploads/2022/01/MG_0110-4-293x300.jpg" />
+          <div class="section">
+            <p>
+              <i class="icon fab fa-linkedin text-darkblue"></i> pierre-gomba
+            </p>
+          </div>
+          <div class="section">
+            <h2>À PROPOS</h2>
+            <p>
+              Le <strong>Front-end</strong> est une de mes passions : j’aime intégrer ou imaginer des interfaces modernes, les rendre responsive et les dynamiser avec des animations élégantes. Mes deux technos de coeur sont <strong>Angular</strong> et <strong>Bootstrap</strong>, que j’utilise depuis plus de 6 ans. Je suis aussi Fullstack : PHP, MySQL, Doctrine… 
+            </p>
+            <p>
+              De nature débrouillard et indépendant dans mon travail, j’aime apprendre de nouvelles technologies, passer du temps à résoudre des problèmes et réaliser du code de qualité. Mes valeurs de travail : clean code, flexibilité, performance et sérieux.
+            </p>
+          </div>
+          <div class="section">
+            <h2>COMPÉTENCES</h2>
+            <ul class="skills">
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Angular &#124; Typescript</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Bootstrap</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>HTML5 &#124; CSS3 &#124; SASS</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Javascript</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>jQuery</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>npm &#124; Webpack</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> PHP</li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> Zend Framework</li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> MySQL</li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> Git &#124; Github</li>
+            </ul>
+          </div>
+          <div class="section">
+            <h2>Langues</h2>
+            <p>
+              Français, langue maternelle
+              <br>
+              Anglais, compétence professionnelle
+            </p>
+          </div>
+          <div class="section">
+            <h2>Centres d'intérêt</h2>
+            <p>
+              Jeux vidéo, jouer et développer
+              <br>
+              Musique, écoute et composition
+              <br>
+              Art en général
+              <br>
+              Sport
+              <br>
+              Informatique en général
+            </p>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="header">
+            <h1>Pierre <span class="text-blue text-uppercase">Gomba</span></h1>
+            <p>Freelance Front-end Developer</p>
+            <ul class="infos">
+              <li><i class="icon fas fa-at text-blue"></i> <a href="mailto:contact@pgomba.com">contact@pgomba.com</a></li>
+              <li><i class="icon fas fa-phone text-blue"></i> 04 75 53 80 50</li>
+              <li><i class="icon fas fa-map-marker-alt text-blue"></i> Boulevard de la Constitution 31, 4020 Liège</li>
+            </ul>
+          </div>
+          <div class="content">
+            <div class="section">
+              <h2>Expériences <br><span class="text-blue">professionelles</span></h2>
+              <p>
+                <strong>2015 <i class="fas fa-long-arrow-alt-right"></i> 2021</strong>
+                <br>
+                Fullstack Developer à temps plein chez <em>Webadev SPRL</em>
+              </p>
+              <ul class="experience-list">
+                <li>Réalisations de sites web, d’e-shops, d’interfaces et d’applications web sous Angular et Bootstrap</li>
+                <li>Intégration de templates Photoshop, Illustrator, Sketch, Figma</li>
+                <li>Animations CSS / JS</li>
+                <li>Responsive design</li>
+                <li>UI / UX Design</li>
+                <li>Projets sous npm et Webpack</li>
+                <li>Collaboration avec d’autres studios graphique (Studio Debie, SOL,…)</li>
+                <li>Optimisation des performances</li>
+                <li>Développement de templates et de modules réutilisables</li>
+                <li>Projets en équipe, utilisation quotidienne de SVN, Git et Github</li>
+              </ul>
+            </div>
+            <div class="section">
+              <p>
+                <strong>2021</strong>
+                <br>
+                Freelance en activité
+              </p>
+              <ul class="experience-list">
+                <li>Freelance Front-end Developer</li>
+                <li>Unity Developer / Sound Designer</li>
+              </ul>
+            </div>
+            <div class="section">
+              <h2>Études <br><span class="text-blue">& formations</span></h2>
+              <p>
+                <strong>2015 <i class="fas fa-long-arrow-alt-right"></i> 2019</strong>
+                <br>
+                <em>Bachelier en Informatique de Gestion</em>, Diplômé, Institut Saint Laurent
+              </p>
+              <p>
+                <strong>2015</strong>
+                <br>
+                <em>STE-Formations Informatiques</em>, Formation qualifiante de Web Developer
+              </p>
+              <p>
+                <strong>2013 <i class="fas fa-long-arrow-alt-right"></i> 2014</strong>
+                <br>
+                <em>Bachelier en Sciences humaines</em>, Haute École de Liège
+              </p>
+              <p>
+                <strong>2009 <i class="fas fa-long-arrow-alt-right"></i> 2013</strong>
+                <br>
+                <em>Bachelier en Psychologie</em>, Université de Liège
+              </p>
+              <p>
+                <strong>2002 <i class="fas fa-long-arrow-alt-right"></i> 2009</strong>
+                <br>
+                <em>CESS</em>, Institut Notre-Dame de Jupille
+              </p>
+            </div>
+            <div class="section">
+              <h2>Autres <br><span class="text-blue">expériences</span></h2>
+              <p>
+                Permis B, possession d’une voiture
+                <br>
+                Animateur Scout pendant 6 ans
+                <br>
+                Brevet d’animateur de Centre de Vacances
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+        `;
+
+        document.getElementById("doc2").appendChild(formContainer);
+       }else{
+           alert("please choose a template")
+       }
+
+
+
+   
+    
 }
-let personalData = [];
-let experienceData = [];
-let educationData = [];
-let certificatData = [];
-let skillsData = [];
-let languagesData = [];
 
-submitSection1.addEventListener('click', function(){
-
-    let personalSection = {
-        image : profilePercture.files[0],
-        fullName : fullName.value,
-        email : email.value,
-        adress : adress.value,
-        phoneNumber : phoneNumber.value,
-        summary : summary.getText(),
-    }
-    personalData.push(personalSection);
-    resumeData.push(personalData)
-    // localStorage.setItem('resume', JSON.stringify(resumeData))
-});
-submitSection2.addEventListener('click', function(){
-    let experienceSection = {
-        jobName : jobName.value,
-        companyName : companyName.value,
-        startExperience : startDateEx.value,
-        endExperience : endDateEx.value,
-        // experienceDescription : exDescription.value,
-        // addExperience : addExperience.value
-    }
-    experienceData.push(experienceSection)
-    resumeData.push(experienceData)
-    // localStorage.setItem('resume', JSON.stringify(resumeData))
-});
-
-submitSection3.addEventListener('click', function(){
-    let educationSection = {
-        schoolName : schoolName.value,
-        majorName : majorName.value,
-        startEducation : startDateEdu.value,
-        endEducation : endDateEdu.value,
-        degree : degree.value
-    }
-    educationData.push(educationSection);
-    resumeData.push(educationData)
-    // localStorage.setItem('resume', JSON.stringify(resumeData))
-})
-
-
-submitSection4.addEventListener('click', function(){
-    let certificatsSection = {
-        certificatName : certificatName.value,
-        StartDateCer : StartDateCer.value,
-        endDateCe : endDateCe.value,
-        CertificatCountainer : addCertificatCountainer.value,
-        dateCertificatCountainer : dateCertificatCountainer.value
-    }
-    certificatData.push(certificatsSection);
-    resumeData.push(certificatData);
-    // localStorage.setItem('resume', JSON.stringify(resumeData))
-})
-
-
-submitSection5.addEventListener('click', function(){
-    let skillsSection = {
-        skillName : skillName.value,
-        deleteSkill : deleteSkill.value,
-        addSkill : addNewSkill.value,
-        addSkillsToCountainer : addSkillsContainer.value
-    }
-    skillsData.push(skillsSection);
-    resumeData.push(skillsData);
-    // localStorage.setItem('resume', JSON.stringify(resumeData))
-});
-
-
-submitSection6.addEventListener('click', function(){
-    let languagesSection = {
-        language : language.value,
-        level : level.value,
-        deleteLanguage : deleteLanguage.value,
-        addLanguageContainer : addLanguageContainer.value
-    }
-    languagesData.push(languagesSection);
-    resumeData.push(languagesData);
-    // localStorage.setItem('resume', JSON.stringify(resumeData))
-});
-
-
-// download.addEventListener('click', function(){
-
-//     let resume = JSON.parse(localStorage.getItem('resume'));
-// })
+// Remove language
+function removeForm5(button) {
+    button.parentElement.remove();
+}

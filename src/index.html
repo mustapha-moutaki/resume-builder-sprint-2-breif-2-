@@ -15,7 +15,7 @@
 <body class="bg-gray-200 h-full">
 
     <!--end of the form-->
-    <header class="fixed right-0 top-0 left-60 my-4 py-3 px-4 h-14 w-30">
+    <header class="fixed right-0 top-0 left-60 my-4 py-3 px-4 w-30 bg-white mt-2">
       <div class="container text-center">
         <div class="progress-container flex justify-between relative mb-18 ">
           <div class="progress" id="progress" value = 0></div>
@@ -140,7 +140,7 @@
               <div class="sm:col-span-3">
                 <label for="first-name" class="block text-sm/6 font-medium text-gray-900">Full name</label>
                 <div class="mt-2">
-                  <input type="text" name="first-name" id="fullName" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                  <input type="text" name="first-name" id="fullName" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
                 </div>
               </div>
       
@@ -149,7 +149,7 @@
               <div class="sm:col-span-4">
                 <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
                 <div class="mt-2">
-                  <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                  <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
                 </div>
               </div>
       
@@ -158,7 +158,7 @@
               <div class="col-span-full">
                 <label for="street-address" class="block text-sm/6 font-medium text-gray-900">Street address</label>
                 <div class="mt-2">
-                  <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                  <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
                 </div>
               </div>
               
@@ -248,7 +248,7 @@
                         <div class="sm:col-span-4">
                           <label for="text" class="block text-sm/6 font-medium text-gray-900">company name</label>
                           <div class="mt-2">
-                            <input id="companyName" name="company" type="text" autocomplete="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                            <input id="companyName" name="company" type="text" autocomplete="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
                           </div>
                         </div>
 
@@ -284,11 +284,16 @@
                         
                       
                       </div>
-                      <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="add-experience">
+                      <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="add-experience" onclick="addForm1(event)">
                           Add
                       </button>
-                 
+                      <div id="displayElement" class=" w-full justify-between items-center gap-x-3">
+
+                     
+                      </div>
               </div>
+
+              
             </section>
 
 
@@ -343,7 +348,7 @@
                         <div class="sm:col-span-3">
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">shcool name</label>
                           <div class="mt-2">
-                            <input type="text" name="school-name" id="shcoolname" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                            <input type="text" name="school-name" id="shcoolname" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
                           </div>
                         </div>
                 
@@ -351,7 +356,7 @@
                           <div class="sm:col-span-3">
                             <label for="first-name" class="block text-sm/6 font-medium text-gray-900">major name</label>
                             <div class="mt-2">
-                              <input type="text" name="majorname" id="majorname" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                              <input type="text" name="majorname" id="majorname" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
                             </div>
                           </div>
                 
@@ -359,10 +364,10 @@
   <label for="small" class="block mb-2 text-sm font-medium text-gray-900 text-black">please select</label>
   <select id="degree" class="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <option selected>Choose degure</option>
-    <option value="US">Bachelor</option>
-    <option value="CA">Master</option>
-    <option value="FR">licence</option>
-    <option value="DE">Doctorate</option>
+    <option value="Bachelor">Bachelor</option>
+    <option value="Master">Master</option>
+    <option value="licenceFR">licence</option>
+    <option value="Doctorate">Doctorate</option>
   </select>
  
 
@@ -380,14 +385,15 @@
   </div>
                           
                           
-                          </div>       
-                          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id = "add-education">
-                            Add
-                        </button>                                    
-                      </div>
-                     
-                 
-              </div>
+</div>
+<button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="add-experience" onclick="addForm2(event)">
+    Add
+</button>
+<div id="displayElement2" class=" w-full justify-between items-center gap-x-3">
+
+
+</div>
+</div>
 
 
               
@@ -455,20 +461,29 @@
   </div>
                           
                           </div>       
-                          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 mb-5" id ="add-certificat">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>  
                          
+                         
+               
                       
-                        <div id="displayElement" class="flex w-full justify-between items-center gap-x-3">
-                          <p id="dateCertificatContainer">12/12/2020</p>
-<p class = "border-solid border-2 border-sky-500 p-2 rounded-md w-full" id="addCertificatCountainer">jfdjh</p>
-<div class="deleteCertificat-" id="deleteCertificat"><i class="fa-solid fa-trash text-rose-500"></i></div>
-                        </div>
-                      </div>
                      
-                 
-              </div>
+      
+
+
+
+            </div>
+            <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="add-experience" onclick="addForm3(event)">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div id="displayElement3" class=" w-full justify-between items-center gap-x-3">
+
+           
+            </div>
+          </div>
+     
+
+
+
+
 
 
               
@@ -514,24 +529,23 @@
                         <div class="sm:col-span-3">
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">Enter a skill</label>
                           <div class="mt-2">
-                            <input type="text" name="first-name" id="skill-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
+                            <input type="text" name="first-name" id="skillName" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2" placeholder="enter skill">
                           </div>
                         </div>
                 
                           
                           
-                          </div>       
-                          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 mb-5" id ="add-skill">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>  
-                         
+                     
+                        <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="add-experience" onclick="addForm4(event)">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div id="displayElement4" class=" w-full justify-between items-center gap-x-3">
+            
                        
-                        <div id="displayElement" class="flex w-full justify-between items-center gap-x-3">
-                          
-<p class = "border-solid border-2 border-sky-500 p-2 rounded-md w-full" id="addskillsCountainer">jfdjh</p>
-<div class="div" id="delete-skill"><i class="fa-solid fa-trash text-rose-500"></i></div>
                         </div>
                       </div>
+                 
+     
                      
                  
               </div>
@@ -579,7 +593,7 @@
                         <div class="sm:col-span-3">
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">language Name</label>
                           <div class="mt-2">
-                            <input type="text" name="first-name" id="language-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
+                            <input type="text" name="first-name" id="language" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
                           </div>
                         </div>
                 
@@ -587,7 +601,7 @@
 
                               
                           <select id="level" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                              <option selected>select your level</option>      
+                              <option selected disabled>select your level</option>      
                               <option value="native">native</option>
                               <option value="biginner">biginner</option>
                               <option value="intermeidate">intermeidate</option>
@@ -597,17 +611,14 @@
                           
                           
                           </div>       
-                          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 mb-5">
+                          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="add-experience" onclick="addForm5(event)">
                             <i class="fa-solid fa-plus"></i>
-                        </button>  
+                          </button>
+                          <div id="displayElement5" class=" w-full justify-between items-center gap-x-3">
+              
                          
-                       
-                        <div id="displayElement" class="flex w-full justify-between items-center gap-x-3">
-                          
-<p class = "border-solid border-2 border-sky-500 p-2 rounded-md w-full" id="addLanguageContainer">jfdjh</p>
-<div class="deleteLanguag-" id="deleteLanguag"><i class="fa-solid fa-trash text-rose-500"></i></div>
+                          </div>
                         </div>
-                      </div>
                      
                  
               </div>
@@ -651,7 +662,7 @@
 
 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
   <a href="#">
-      <img class="rounded-t-lg" src="/images/modern.jpg" alt="" />
+      <img class="rounded-t-lg" src="/images/classic.webp" alt="" />
   </a>
   <div class="p-5">
       <a href="#">
@@ -660,7 +671,7 @@
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A classic resume template is simple, structured, and formal, ideal for traditional fields like finance or law. It uses clear fonts, minimal colors, and organizes sections neatly, focusing on readability and professionalism.</p>
     
 <div class="flex items-center mb-4">
-  <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+  <input id="radio1" type="radio" value="classic cv" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
   <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I PREFER THIS TEMPLATE</label>
 </div>
 
@@ -673,7 +684,7 @@
 
 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
   <a href="#">
-      <img class="rounded-t-lg" src="/images/classic.webp" alt="" />
+      <img class="rounded-t-lg" src="/images/modern.jpg" alt="" />
   </a>
   <div class="p-5">
       <a href="#">
@@ -681,10 +692,14 @@
       </a>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A modern resume template has a stylish, clean look with creative elements, suited for dynamic fields like tech or design. It may feature bold headers and icons, enhancing visual appeal while maintaining organization.</p>
       <div class="flex items-center">
-        <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 b border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 bg-sky-500 dark:border-gray-600">
+        <input checked id="radio2" type="radio" value="modernCv" name="default-radio" class="w-4 h-4 text-blue-600 b border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 bg-sky-500 dark:border-gray-600">
         <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I prefer this template</label>
+        
       </div>
+      
+      
   </div>
+
 </div>
 
               
@@ -692,24 +707,80 @@
 
 
           </div>
-
+          
         </div>
-      
-        <div class="mt-10 flex justify-center">
 
-          <a class="px-6 py-2 min-w-[120px] text-center text-black bg-sky-500 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring"
-            href="/download" id="downloadBtn">
-            Download now
+
+<!----------------------------------cv form 1 ----------------------->
+        <div id="doc2" class="yui-t7">
+ 
+        </div><!--// doc end cv -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="mt-10 flex justify-center" id="createresumebtn" onclick="displayCv(event)">
+          
+          <a class="px-6 py-2 min-w-[120px] text-center text-black bg-sky-500 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring flex justify-between items-center"
+            href="/download" >
+            Create my cv
           </a>
         
-         <img src="/images/downloadcv.gif" alt="" class=" h-9 mt-1">
+         
         
         </div>
+
+      
+      
+        <div class="mt-10 flex justify-center text-center items-center" id="downloadBtnCountainer">
+          
+          <a class="px-6 py-2 text-center text-black bg-sky-500 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring flex gap-2 items-center"
+            href="/download" id="downloadBtn">
+            <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>Download now
+          </a>
+        
+         
+        
+        </div>
+
+        
+
+
+        
+
+
+
+
+
+
+
 
     </form> 
      
   </main>
+
+
+
 </section>
+
+
+
+
+
+
+
 
 
 
