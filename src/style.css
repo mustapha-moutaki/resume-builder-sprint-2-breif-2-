@@ -272,6 +272,7 @@ h2{
   grid-area: right-column;
   display: grid;
   grid-template-rows: 250px 1fr;
+
   grid-template-areas: 
     "header"
     "content";

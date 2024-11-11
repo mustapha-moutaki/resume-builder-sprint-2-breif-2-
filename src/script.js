@@ -385,10 +385,10 @@ function displayCv(event) {
  creatcv.style.display = 'none';
 
 //    resumeData.personalSection;
-// let profilePercture = document.getElementById("profilePic").value; // for file input
+let profilePercture = document.getElementById("profilePic").value; // for file input
 let fullName = document.getElementById("fullName").value;
 let email = document.getElementById("email").value;
-// let adress = document.getElementById("street-address").value;
+let adress = document.getElementById("street-address").value;
 let phoneNumber = document.getElementById("phone-input").value;
 let summary = quill.getText()  // or quill.getText() for plain text
 //----------------------------personal infos end------------------------------------------
@@ -415,9 +415,9 @@ let endDateEdu = document.getElementById("end-date-edu").value;
 
 
 //----------------------------certificats infos------------------------------------------
-// let certificatName = document.getElementById("certificat-name").value;
-// let StartDateCer = document.getElementById("Start-date-cer").value;
-// let endDateCe = document.getElementById("end-date-cer").value;
+let certificatName = document.getElementById("certificat-name").value;
+let StartDateCer = document.getElementById("Start-date-cer").value;
+let endDateCe = document.getElementById("end-date-cer").value;
 // let addCertificatCountainer = document.getElementById("addCertificatCountainer").value;
 // let dateCertificatCountainer = document.getElementById("dateCertificatContainer").value;//showing date
 // let deletecertificat = document.getElementById("deleteCertificat").value;//delete certificat
@@ -434,8 +434,8 @@ let skillName = document.getElementById("skillName").value;
 
 
 //----------------------------language infos  ------------------------------------------
-// let language = document.getElementById("language").value;
-// let level = document.getElementById("level").value;
+let language = document.getElementById("language").value;
+let level = document.getElementById("level").value;
 // let deleteLanguage = document.getElementById("deleteLanguag");
 // let addLanguageContainer = document.getElementById("addLanguageContainer");
 
@@ -618,31 +618,26 @@ console.log(radioselected)
         formContainer.innerHTML = `
        <div class="cv-container">
         <div class="left-column">
-          <img class="portait" src="https://www.codeur.com/tuto/wp-content/uploads/2022/01/MG_0110-4-293x300.jpg" />
+          <img class="portait" src="" />
           <div class="section">
-            <p>
-              <i class="icon fab fa-linkedin text-darkblue"></i> pierre-gomba
-            </p>
+            
           </div>
           <div class="section">
-            <h2>À PROPOS</h2>
+            <h2>summary</h2>
             <p>
-              Le <strong>Front-end</strong> est une de mes passions : j’aime intégrer ou imaginer des interfaces modernes, les rendre responsive et les dynamiser avec des animations élégantes. Mes deux technos de coeur sont <strong>Angular</strong> et <strong>Bootstrap</strong>, que j’utilise depuis plus de 6 ans. Je suis aussi Fullstack : PHP, MySQL, Doctrine… 
-            </p>
-            <p>
-              De nature débrouillard et indépendant dans mon travail, j’aime apprendre de nouvelles technologies, passer du temps à résoudre des problèmes et réaliser du code de qualité. Mes valeurs de travail : clean code, flexibilité, performance et sérieux.
-            </p>
+              ${summary}
+            </p>         
           </div>
           <div class="section">
             <h2>COMPÉTENCES</h2>
             <ul class="skills">
-              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Angular &#124; Typescript</strong></li>
-              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Bootstrap</strong></li>
-              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>HTML5 &#124; CSS3 &#124; SASS</strong></li>
-              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Javascript</strong></li>
-              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>jQuery</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>${skillName} &#124; ${skillName}</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>${skillName}</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>${skillName} &#124; ${skillName} &#124; ${skillName}</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>${skillName}</strong></li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>${skillName}</strong></li>
               <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>npm &#124; Webpack</strong></li>
-              <li><i class="icon fas fa-check-circle text-darkblue"></i> PHP</li>
+              <li><i class="icon fas fa-check-circle text-darkblue"></i> ${skillName}</li>
               <li><i class="icon fas fa-check-circle text-darkblue"></i> Zend Framework</li>
               <li><i class="icon fas fa-check-circle text-darkblue"></i> MySQL</li>
               <li><i class="icon fas fa-check-circle text-darkblue"></i> Git &#124; Github</li>
@@ -650,10 +645,7 @@ console.log(radioselected)
           </div>
           <div class="section">
             <h2>Langues</h2>
-            <p>
-              Français, langue maternelle
-              <br>
-              Anglais, compétence professionnelle
+            <p>${language}    -${level}
             </p>
           </div>
           <div class="section">
@@ -673,24 +665,24 @@ console.log(radioselected)
         </div>
         <div class="right-column">
           <div class="header">
-            <h1>Pierre <span class="text-blue text-uppercase">Gomba</span></h1>
-            <p>Freelance Front-end Developer</p>
+            <h1><span class="text-blue text-uppercase">${skillName}</span></h1>
+            <p>${jobName}</p>
             <ul class="infos">
-              <li><i class="icon fas fa-at text-blue"></i> <a href="mailto:contact@pgomba.com">contact@pgomba.com</a></li>
-              <li><i class="icon fas fa-phone text-blue"></i> 04 75 53 80 50</li>
-              <li><i class="icon fas fa-map-marker-alt text-blue"></i> Boulevard de la Constitution 31, 4020 Liège</li>
+              <li><i class="icon fas fa-at text-blue"></i> <a href="${email}">${email}</a></li>
+              <li><i class="icon fas fa-phone text-blue"></i>${phoneNumber}</li>
+              <li><i class="icon fas fa-map-marker-alt text-blue"></i>${adress}</li>
             </ul>
           </div>
           <div class="content">
             <div class="section">
-              <h2>Expériences <br><span class="text-blue">professionelles</span></h2>
+              <h2>Experiences <br><span class="text-blue">professionelles</span></h2>
               <p>
-                <strong>2015 <i class="fas fa-long-arrow-alt-right"></i> 2021</strong>
+                <strong>${startDateEx} <i class="fas fa-long-arrow-alt-right"></i> ${endDateEx}</strong>
                 <br>
-                Fullstack Developer à temps plein chez <em>Webadev SPRL</em>
+                ${jobName}</em>
               </p>
               <ul class="experience-list">
-                <li>Réalisations de sites web, d’e-shops, d’interfaces et d’applications web sous Angular et Bootstrap</li>
+                <li>${exDescription}</li>
                 <li>Intégration de templates Photoshop, Illustrator, Sketch, Figma</li>
                 <li>Animations CSS / JS</li>
                 <li>Responsive design</li>
@@ -704,29 +696,29 @@ console.log(radioselected)
             </div>
             <div class="section">
               <p>
-                <strong>2021</strong>
+                <strong>${startDateEdu}</strong>
                 <br>
-                Freelance en activité
+                ${jobName}
               </p>
               <ul class="experience-list">
-                <li>Freelance Front-end Developer</li>
-                <li>Unity Developer / Sound Designer</li>
+                <li>${companyName}</li>
+                <li>${jobName}r</li>
               </ul>
             </div>
             <div class="section">
-              <h2>Études <br><span class="text-blue">& formations</span></h2>
+              <h2>education <br><span class="text-blue">& courses</span></h2>
               <p>
-                <strong>2015 <i class="fas fa-long-arrow-alt-right"></i> 2019</strong>
+                <strong>${startDateEx} <i class="fas fa-long-arrow-alt-right"></i>${endDateEx}</strong>
                 <br>
-                <em>Bachelier en Informatique de Gestion</em>, Diplômé, Institut Saint Laurent
+                <em>${schoolName}- ${majorName}</em>,${degree}
               </p>
               <p>
-                <strong>2015</strong>
+                <strong>${startDateEx}</strong>
                 <br>
-                <em>STE-Formations Informatiques</em>, Formation qualifiante de Web Developer
+                <em>${schoolName}- ${majorName}</em>,${degree}
               </p>
               <p>
-                <strong>2013 <i class="fas fa-long-arrow-alt-right"></i> 2014</strong>
+                <strong>${startDateEx} <i class="fas fa-long-arrow-alt-right"></i> ${endDateEx}</strong>
                 <br>
                 <em>Bachelier en Sciences humaines</em>, Haute École de Liège
               </p>
@@ -742,7 +734,7 @@ console.log(radioselected)
               </p>
             </div>
             <div class="section">
-              <h2>Autres <br><span class="text-blue">expériences</span></h2>
+              <h2>more <br><span class="text-blue">experiences</span></h2>
               <p>
                 Permis B, possession d’une voiture
                 <br>
