@@ -249,13 +249,13 @@ function addForm1(event) {
   event.preventDefault();
 
   const jobName = document.getElementById("experienceName").value;
-  const experienceDescription = document.getElementById("editor").value;
+  const companyName = document.getElementById("companyName").value;
+  const experienceDescription = document.getElementById("editor").innerText;
   const startDateEx = document.getElementById("Start-date-exp").value;
   const endDateEx = document.getElementById("End-date-exp").value;
-  if (jobName && experienceDescription && startDateEx && endDateEx) {
-    
-    
+  if (jobName) {
     experiences.push(jobName)
+    experiences.push(companyName)
     experiences.push(experienceDescription)
     experiences.push(startDateEx)
     experiences.push(endDateEx)
@@ -273,7 +273,7 @@ function addForm1(event) {
         </div>`;
   document.getElementById("displayElement").appendChild(formContainer);
 }
-
+console.log(experiences)
 function removeForm1(button) {
   button.parentElement.remove();
 }
@@ -687,10 +687,12 @@ function displayCv(event) {
         <section class="mb-2 border-b-2 border-gray-300 break-inside-avoid">
             <header>
                 <h3 class="font-semibold text-gray-800 text-md leading-snugish">
+                <ul>
                 ${experiences.map(experience => `<li>${experience}</li>`).join('')}
+                </ul>
                 </h3>
                 <p class="text-sm leading-normal text-gray-500">
-                    ${startDateEx} &ndash; ${endDateEx} |
+                    
                 </p>
             </header>
             <ul class="pl-3 mt-2 font-normal text-gray-700 text-md leading-snugish">
@@ -698,7 +700,7 @@ function displayCv(event) {
                     <span class="text-gray-500 transform -translate-y-px select-none">
                         &rsaquo;
                     </span>
-                     ${exDescription}
+                    
                 </li>
                 <li>
                     <span class="text-gray-500 transform -translate-y-px select-none">
@@ -776,7 +778,7 @@ function displayCv(event) {
         <div class="left-column">
         <img class="h-20 bg-black" title="Profile Picture" src="${profilePictureData}" />
           <div class="section">
-            
+            <h1>${fullName}<h1>
           </div>
           <div class="section">
             <h2>summary</h2>
@@ -805,7 +807,7 @@ function displayCv(event) {
         <div class="right-column">
           <div class="header">
            <!--here you have to complete----------------->
-            <p>${jobName}</p>
+            <h1>${jobName}</h1>
             <ul class="infos">
               <li><i class="icon fas fa-at text-blue"></i> <a href="${email}">${email}</a></li>
               <li><i class="icon fas fa-phone text-blue"></i>${phoneNumber}</li>
