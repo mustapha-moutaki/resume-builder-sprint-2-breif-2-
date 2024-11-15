@@ -60,7 +60,6 @@ next.forEach((button) => {
 
 });
 
-
 // Initialize Quill editor for des styling
 const quil = new Quill(".edit", {
   theme: "snow",
@@ -867,7 +866,7 @@ btndwlond.addEventListener("click", async function () {
     image: { type: "jpeg", quality: 0.98 },
     html2canvas: { scale: 1 },
     // jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    jsPDF:        { unit: 'px', format: [2480, 3508], orientation: 'portrait' } //le width and height of the pdf or page A4
+    jsPDF:   { unit: 'px', format: [2480, 3508], orientation: 'portrait' } //le width and height of the pdf or page A4
   };
   try {
     await html2pdf().set(options).from(cvDiv).save();

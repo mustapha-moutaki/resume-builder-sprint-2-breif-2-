@@ -120,7 +120,7 @@
                 <div class="mt-2">
                   <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2" required>
                 </div>
-                <span id="street-address" class="error text-red-500"></span>
+                <span id="addressError" class="error text-red-500"></span>
               </div>
               
    
@@ -188,14 +188,14 @@
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">experience name</label>
                           <div class="mt-2">
                             <input type="text" name="experienceName" id="experienceName" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
-                            <span id="jobName" class="error text-red-500"></span>
+                            <span id="experienceNameError" class="error text-red-500"></span>
                           </div>
                         </div>             
                         <div class="sm:col-span-4">
                           <label for="text" class="block text-sm/6 font-medium text-gray-900">company name</label>
                           <div class="mt-2">
                             <input id="companyName" name="company" type="text" autocomplete="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
-                            <span id="companyName" class="error text-red-500"></span>
+                            <span id="companyNameError" class="error text-red-500"></span>
                           </div>
                         </div>
 
@@ -224,7 +224,7 @@
 </div>
 <p class="mt-3 text-sm/6 text-gray-600">Write a few sentences about yourself.</p>
 </div>
-<span id="experienceDescription" class="error text-red-500"></span>
+<span id="experienceDescriptionError" class="error text-red-500"></span>
 </div>
 
                       </div>
@@ -242,7 +242,7 @@
         </div>
         <div class="bg-gray-50 py-6 sm:py-8 flex justify-between">
           <button class="btn prev" id="prevSection2">Prev</button>
-          <button class="btn btnNext" id="submitSection2" >Next</button> 
+          <button class="btn btnNext" id="submitSection2" onclick="validateFormExperiences(event)">Next</button> 
         </div>
         
     </form> 
@@ -279,6 +279,7 @@
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">shcool name</label>
                           <div class="mt-2">
                             <input type="text" name="school-name" id="shcoolname" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
+                            <span id="schoolNameError" class="error text-red-500"></span>
                           </div>
                         </div>
                 
@@ -287,6 +288,7 @@
                             <label for="first-name" class="block text-sm/6 font-medium text-gray-900">major name</label>
                             <div class="mt-2">
                               <input type="text" name="majorname" id="majorname" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
+                              <span id="majorNameError" class="error text-red-500"></span>
                             </div>
                           </div>
                 
@@ -299,7 +301,7 @@
     <option value="licenceFR">licence</option>
     <option value="Doctorate">Doctorate</option>
   </select>
- 
+  <span id="degreeError" class="error text-red-500"></span>
 
   <div class="sm:col-span-2 ">
     <label for="Start-date" class="block text-sm/6 font-medium text-gray-900">Start date</label>
@@ -335,7 +337,7 @@
         </div>
         <div class="bg-gray-50 py-6 sm:py-8 flex justify-between">
           <button class="btn prev" id="prevSection3">Prev</button>
-          <button class="btn btnNext" id="submitSection3" >Next</button> 
+          <button class="btn btnNext" id="submitSection3" onclick="validateFormEducation(event)">Next</button> 
         </div>
         
 
@@ -370,6 +372,7 @@
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">certificat name</label>
                           <div class="mt-2">
                             <input type="text" name="certificat-name" id="certificat-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2 certificatName">
+                            <span id="certificatNameError" class="error text-red-500"></span>
                           </div>
                         </div>
                 
@@ -421,7 +424,7 @@
         </div>
         <div class="bg-gray-50 py-6 sm:py-8 flex justify-between">
           <button class="btn prev" id="prevSection4">Prev</button>
-          <button class="btn btnNext" id="submitSection4" >Next</button> 
+          <button class="btn btnNext" id="submitSection4" onclick="validateFormcertificats(event)">Next</button> 
         </div>
         
 
@@ -456,6 +459,7 @@
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">Enter a skill</label>
                           <div class="mt-2">
                             <input type="text" name="first-name" id="skillName" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2" placeholder="enter skill">
+                            <span id="skillNameError" class="error text-red-500"></span>
                           </div>
                         </div>
                 
@@ -486,7 +490,7 @@
         </div>
         <div class="bg-gray-50 py-6 sm:py-8 flex justify-between">
           <button class="btn prev" id="prevSection5">Prev</button>
-          <button class="btn btnNext" id="submitSection5" >Next</button> 
+          <button class="btn btnNext" id="submitSection5" onclick="validateFormSkill(event)">Next</button> 
         </div>
         
 
@@ -520,6 +524,7 @@
                           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">language Name</label>
                           <div class="mt-2">
                             <input type="text" name="first-name" id="language" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2">
+                            <span id="langaugeNameError" class="error text-red-500"></span>
                           </div>
                         </div>
                 
@@ -533,6 +538,7 @@
                               <option value="intermeidate">intermeidate</option>
                               <option value="advanced">advanced</option>
                           </select>
+                          <span id="levelError" class="error text-red-500"></span>
                       
                           
                           
@@ -559,7 +565,7 @@
         </div>
         <div class="bg-gray-50 py-6 sm:py-8 flex justify-between">
           <button class="btn prev" id="prevSection6">Prev</button>
-          <button class="btn btnNext" id="submitSection6">Next</button> 
+          <button class="btn btnNext" id="submitSection6" onclick="validateFormlangauages(event)">Next</button> 
         </div>
         
 

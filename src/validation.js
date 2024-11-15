@@ -1,7 +1,6 @@
 
 function showError(elementId, message) {
   document.getElementById(elementId).textContent = message;
-  
 }
 
 // Function to validate the Personal Information form
@@ -46,6 +45,13 @@ function validateFormPersonal(event) {
   return isValid;
 }
 
+
+
+
+
+
+
+
 // Function to validate the Experiences form
 function validateFormExperiences(event) {
   event.preventDefault(); 
@@ -54,7 +60,7 @@ function validateFormExperiences(event) {
 
   let isValid = true;
 
-  const jobName = document.getElementById("jobName").value;
+  const jobName = document.getElementById("experienceName").value;
   if (jobName.trim() === "") {
     showError("experienceNameError", "Job Name is required.");
     isValid = false;
@@ -67,8 +73,7 @@ function validateFormExperiences(event) {
     isValid = false;
   }
 
-
-  const experienceDescription = document.getElementById("experienceDescription").value;
+  const experienceDescription = document.getElementById("editor").value;
   if (experienceDescription.trim() === "") {
     showError("experienceDescriptionError", "Description is required.");
     isValid = false;
@@ -76,6 +81,14 @@ function validateFormExperiences(event) {
 
   return isValid;
 }
+
+
+
+
+
+
+
+
 
 
 function validateFormEducation(event) {
@@ -87,13 +100,13 @@ function validateFormEducation(event) {
   let isValid = true;
 
 
-  const schoolName = document.getElementById("schoolName").value;
+  const schoolName = document.getElementById("shcoolname").value;
   if (schoolName.trim() === "") {
     showError("schoolNameError", "School Name is required.");
     isValid = false;
   }
 
-  const majorName = document.getElementById("majorName").value;
+  const majorName = document.getElementById("majorname").value;
   if (majorName.trim() === "") {
     showError("majorNameError", "Major is required.");
     isValid = false;
@@ -108,6 +121,29 @@ function validateFormEducation(event) {
 
   return isValid;
 }
+
+// Function to validate the certificats form
+function validateFormcertificats(event) {
+  event.preventDefault(); 
+
+  document.querySelectorAll(".error").forEach(error => error.textContent = "");
+
+  let isValid = true;
+
+  const certificatName = document.getElementById("certificat-name").value;
+  if (certificatName.trim() === "") {
+    showError("certificatNameError", "At least one skill is required.");
+    isValid = false;
+  }
+
+  if (isValid) {
+    document.querySelectorAll("#section").submit();
+  }
+
+  return isValid;
+}
+
+
 
 // Function to validate the Skills form
 function validateFormSkill(event) {
@@ -124,7 +160,35 @@ function validateFormSkill(event) {
   }
 
   if (isValid) {
-    document.getElementById("resumeForm").submit();
+    document.querySelectorAll("#section").submit();
+  }
+
+  return isValid;
+}
+
+
+
+// Function to validate the langauges form
+function validateFormlangauages(event) {
+  event.preventDefault(); 
+
+  document.querySelectorAll(".error").forEach(error => error.textContent = "");
+
+  let isValid = true;
+
+  const languageName = document.getElementById("language").value;
+  if (languageName.trim() === "") {
+    showError("langaugeNameError", "At least one language is required.");
+    isValid = false;
+  }
+  const languageLevel = document.getElementById("level").value;
+   if (languageLevel.trim() === "") {
+    showError("levelError", "lavel is required.");
+    isValid = false;
+  }
+
+  if (isValid) {
+    document.querySelectorAll("#section").submit();
   }
 
   return isValid;
