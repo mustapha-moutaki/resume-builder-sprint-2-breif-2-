@@ -410,7 +410,6 @@ function removeForm5(button) {
   button.parentElement.remove();
 }
 
-////testing =================================================
 
 function displayCv(event) {
   event.preventDefault();
@@ -456,7 +455,6 @@ function displayCv(event) {
 
   //----------------------------skills infos  ------------------------------------------
   let skillName = document.getElementById("skillName").value;
-
 
   //----------------------------skills infos end------------------------------------------
 
