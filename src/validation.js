@@ -46,12 +46,6 @@ function validateFormPersonal(event) {
 }
 
 
-
-
-
-
-
-
 // Function to validate the Experiences form
 function validateFormExperiences(event) {
   event.preventDefault(); 
@@ -73,21 +67,10 @@ function validateFormExperiences(event) {
     isValid = false;
   }
 
-  const experienceDescription = document.getElementById("editor").value;
-  if (experienceDescription.trim() === "") {
-    showError("experienceDescriptionError", "Description is required.");
-    isValid = false;
-  }
+ 
 
   return isValid;
 }
-
-
-
-
-
-
-
 
 
 
@@ -124,7 +107,7 @@ function validateFormEducation(event) {
 
 // Function to validate the certificats form
 function validateFormcertificats(event) {
-  event.preventDefault(); 
+  event.preventDefault();
 
   document.querySelectorAll(".error").forEach(error => error.textContent = "");
 
@@ -132,15 +115,11 @@ function validateFormcertificats(event) {
 
   const certificatName = document.getElementById("certificat-name").value;
   if (certificatName.trim() === "") {
-    showError("certificatNameError", "At least one skill is required.");
+    showError("certificatNameError", "Certificate name is required.");
     isValid = false;
   }
 
-  if (isValid) {
-    document.querySelectorAll("#section").submit();
-  }
-
-  return isValid;
+  return isValid; 
 }
 
 
@@ -159,9 +138,6 @@ function validateFormSkill(event) {
     isValid = false;
   }
 
-  if (isValid) {
-    document.querySelectorAll("#section").submit();
-  }
 
   return isValid;
 }
@@ -187,9 +163,7 @@ function validateFormlangauages(event) {
     isValid = false;
   }
 
-  if (isValid) {
-    document.querySelectorAll("#section").submit();
-  }
 
   return isValid;
 }
+

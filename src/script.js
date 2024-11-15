@@ -27,38 +27,226 @@ prev.forEach((button) => {
 
 // Set up the "Next" button to go to the next section when clicked
 
+// next.forEach((button) => {
+//   button.addEventListener("click", (event) => {
+//     event.preventDefault(); // no loading for the page
+//     // Check if all inputs are filled before proceeding
+//     // !!  checking every single form field    how!!
+    
+// switch(count){
+//   case 1: {
+//     const PersonalSection = document.getElementById("personalInfosSection");
+//     const inputs = PersonalSection.querySelectorAll("input");
+//   let allValid = true;
+//    // Check if all inputs are valid
+//    inputs.forEach(input => {
+//     if (!input.checkValidity()) {
+//       allValid = false;
+//     }
+//   });
+  
+//   if (allValid) {
+//   if (count < 7) {
+   
+//   count++;
+//   counter = counter + 16// incrementing the progress
+  
+//     // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
+//     progress.style.width = `${counter}%`;
+//     display(); // update the section and showing the next one
+//   } else {
+//     alert("You've reached the limit"); // alert if counter more than 7
+//   }
+//   }
+//   }
+//     break;
+
+//     case 2 : {
+//       const experiencesSection = document.getElementById("experiencesSection");
+//       const inputs = experiencesSection.querySelectorAll("input");
+//     let allValid = true;
+//      // Check if all inputs are valid
+//      inputs.forEach(input => {
+//       if (!input.checkValidity()) {
+//         allValid = false;
+//       }
+//     });
+    
+//     if (allValid) {
+//     if (count < 7) {
+     
+//     count++;
+//     counter = counter + 16// incrementing the progress
+    
+//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
+//       progress.style.width = `${counter}%`;
+//       display(); // update the section and showing the next one
+//     } else {
+//       alert("You've reached the limit"); // alert if counter more than 7
+//     }
+//     }
+//     };
+//     break;
+
+//     case 3 : {
+//       const educationSection = document.getElementById("educationSection");
+//       const inputs = educationSection.querySelectorAll("input");
+//     let allValid = true;
+//      // Check if all inputs are valid
+//      inputs.forEach(input => {
+//       if (!input.checkValidity()) {
+//         allValid = false;
+//       }
+//     });
+    
+//     if (allValid) {
+//     if (count < 7) {
+     
+//     count++;
+//     counter = counter + 16// incrementing the progress
+    
+//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
+//       progress.style.width = `${counter}%`;
+//       display(); // update the section and showing the next one
+//     } else {
+//       alert("You've reached the limit"); // alert if counter more than 7
+//     }
+//     }
+//     };
+//     break;
+
+//     case 4 : {
+//       const skillsSection = document.getElementById("skillsSection");
+//       const inputs = skillsSection.querySelectorAll("input");
+//     let allValid = true;
+//      // Check if all inputs are valid
+//      inputs.forEach(input => {
+//       if (!input.checkValidity()) {
+//         allValid = false;
+//       }
+//     });
+    
+//     if (allValid) {
+//     if (count < 7) {
+     
+//     count++;
+//     counter = counter + 16// incrementing the progress
+    
+//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
+//       progress.style.width = `${counter}%`;
+//       display(); // update the section and showing the next one
+//     } else {
+//       alert("You've reached the limit"); // alert if counter more than 7
+//     }
+//     }
+//     };
+//     break;
+
+//     case 5 : {
+//       const languagesSection = document.getElementById("languagesSection");
+//       const inputs = languagesSection.querySelectorAll("input");
+//     let allValid = true;
+//      // Check if all inputs are valid
+//      inputs.forEach(input => {
+//       if (!input.checkValidity()) {
+//         allValid = false;
+//       }
+//     });
+    
+//     if (allValid) {
+//     if (count < 7) {
+     
+//     count++;
+//     counter = counter + 16// incrementing the progress
+    
+//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
+//       progress.style.width = `${counter}%`;
+//       display(); // update the section and showing the next one
+//     } else {
+//       alert("You've reached the limit"); // alert if counter more than 7
+//     }
+//     }
+//     };
+//     break;
+
+//     case 6 : {
+//       const experiencesSection = document.getElementById("experiencesSection");
+//       const inputs = experiencesSection.querySelectorAll("input");
+//     let allValid = true;
+//      // Check if all inputs are valid
+//      inputs.forEach(input => {
+//       if (!input.checkValidity()) {
+//         allValid = false;
+//       }
+//     });
+    
+//     if (allValid) {
+//     if (count < 7) {
+     
+//     count++;
+//     counter = counter + 16// incrementing the progress
+    
+//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
+//       progress.style.width = `${counter}%`;
+//       display(); // update the section and showing the next one
+//     } else {
+//       alert("You've reached the limit"); // alert if counter more than 7
+//     }
+//     }
+//     };
+//     break;
+// }
+
+
+
+  
+//   });
+
+// });
+
 next.forEach((button) => {
   button.addEventListener("click", (event) => {
-    event.preventDefault(); // no loading for the page
-    // Check if all inputs are filled before proceeding
-    const currentSection = document.querySelector(".section");
-    const inputs = currentSection.querySelectorAll("input");
-
-    let allValid = true;
-
-    // Check if all inputs are valid
-    inputs.forEach(input => {
-      if (!input.checkValidity()) {
-        allValid = false;
-      }
-    });
+    event.preventDefault(); 
+    let allValid = false;
+//all Valid equal the input or form inputs that contain
+    switch (count) {
+      case 1:
+        allValid = validateFormPersonal(event); 
+        break;
+      case 2:
+        allValid = validateFormExperiences(event); 
+        break;
+      case 3:
+        allValid = validateFormEducation(event); 
+        break;
+      case 4:
+        allValid = validateFormcertificats(event);
+        break;
+      case 5:
+        allValid = validateFormSkill(event);
+        break;
+      case 6:
+        allValid = validateFormlangauages(event); 
+        break;
+      default:
+        alert("No more sections to navigate.");
+    }
 
     if (allValid) {
-    if (count < 7) {
-     
-    count++;
-    counter = counter + 16// incrementing the progress
-
-      // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
-      progress.style.width = `${counter}%`;
-      display(); // update the section and showing the next one
+      if (count < 7) {
+        count++;
+        counter += 16; // Update progress bar and add 16 to counter
+        progress.style.width = `${counter}%`;
+        display(); // Update the visible section
+      } else {
+        alert("You've completed the form!");
+      }
     } else {
-      alert("You've reached the limit"); // alert if counter more than 7
+      console.log("Please fill in all required fields.");
     }
-  }
   });
-
 });
+
 
 // Initialize Quill editor for des styling
 const quil = new Quill(".edit", {
@@ -243,7 +431,7 @@ function addForm1(event) {
   if (jobName && experienceDescription && startDateEx && endDateEx) {
     
     
-    
+    experiences.push(jobName)
     experiences.push(experienceDescription)
     experiences.push(startDateEx)
     experiences.push(endDateEx)
@@ -459,7 +647,7 @@ function displayCv(event) {
 
   //----------------------------language infos  ------------------------------------------
   // for(let i =0; i<language.length;i+3){
-
+        // arr[i].innerHTML = "<h1>hello world</h1>"
   // }
   let language = document.getElementById("language").value;
   let level = document.getElementById("level").value;
@@ -826,7 +1014,7 @@ function displayCv(event) {
             <div class="section">
               <h2>Experiences <br><span class="text-blue">professionelles</span></h2>
            <ul>
-                        ${experiences.map(experience => `<li>${experience}</li> <hr>`).join('')}
+                        ${experiences.map(experience => `<li>${experience}</li>`).join('')}
 
     
               </ul>
@@ -854,6 +1042,7 @@ function removeForm5(button) {
 
 
 
+//html to pdf print and download
 let cvDiv = document.querySelector("#doc2");
 let btndwlond = document.querySelector("#downloadBtn")
 btndwlond.addEventListener("click", async function () {
