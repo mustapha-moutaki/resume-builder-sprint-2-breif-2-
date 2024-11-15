@@ -27,182 +27,6 @@ prev.forEach((button) => {
 
 // Set up the "Next" button to go to the next section when clicked
 
-// next.forEach((button) => {
-//   button.addEventListener("click", (event) => {
-//     event.preventDefault(); // no loading for the page
-//     // Check if all inputs are filled before proceeding
-//     // !!  checking every single form field    how!!
-    
-// switch(count){
-//   case 1: {
-//     const PersonalSection = document.getElementById("personalInfosSection");
-//     const inputs = PersonalSection.querySelectorAll("input");
-//   let allValid = true;
-//    // Check if all inputs are valid
-//    inputs.forEach(input => {
-//     if (!input.checkValidity()) {
-//       allValid = false;
-//     }
-//   });
-  
-//   if (allValid) {
-//   if (count < 7) {
-   
-//   count++;
-//   counter = counter + 16// incrementing the progress
-  
-//     // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
-//     progress.style.width = `${counter}%`;
-//     display(); // update the section and showing the next one
-//   } else {
-//     alert("You've reached the limit"); // alert if counter more than 7
-//   }
-//   }
-//   }
-//     break;
-
-//     case 2 : {
-//       const experiencesSection = document.getElementById("experiencesSection");
-//       const inputs = experiencesSection.querySelectorAll("input");
-//     let allValid = true;
-//      // Check if all inputs are valid
-//      inputs.forEach(input => {
-//       if (!input.checkValidity()) {
-//         allValid = false;
-//       }
-//     });
-    
-//     if (allValid) {
-//     if (count < 7) {
-     
-//     count++;
-//     counter = counter + 16// incrementing the progress
-    
-//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
-//       progress.style.width = `${counter}%`;
-//       display(); // update the section and showing the next one
-//     } else {
-//       alert("You've reached the limit"); // alert if counter more than 7
-//     }
-//     }
-//     };
-//     break;
-
-//     case 3 : {
-//       const educationSection = document.getElementById("educationSection");
-//       const inputs = educationSection.querySelectorAll("input");
-//     let allValid = true;
-//      // Check if all inputs are valid
-//      inputs.forEach(input => {
-//       if (!input.checkValidity()) {
-//         allValid = false;
-//       }
-//     });
-    
-//     if (allValid) {
-//     if (count < 7) {
-     
-//     count++;
-//     counter = counter + 16// incrementing the progress
-    
-//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
-//       progress.style.width = `${counter}%`;
-//       display(); // update the section and showing the next one
-//     } else {
-//       alert("You've reached the limit"); // alert if counter more than 7
-//     }
-//     }
-//     };
-//     break;
-
-//     case 4 : {
-//       const skillsSection = document.getElementById("skillsSection");
-//       const inputs = skillsSection.querySelectorAll("input");
-//     let allValid = true;
-//      // Check if all inputs are valid
-//      inputs.forEach(input => {
-//       if (!input.checkValidity()) {
-//         allValid = false;
-//       }
-//     });
-    
-//     if (allValid) {
-//     if (count < 7) {
-     
-//     count++;
-//     counter = counter + 16// incrementing the progress
-    
-//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
-//       progress.style.width = `${counter}%`;
-//       display(); // update the section and showing the next one
-//     } else {
-//       alert("You've reached the limit"); // alert if counter more than 7
-//     }
-//     }
-//     };
-//     break;
-
-//     case 5 : {
-//       const languagesSection = document.getElementById("languagesSection");
-//       const inputs = languagesSection.querySelectorAll("input");
-//     let allValid = true;
-//      // Check if all inputs are valid
-//      inputs.forEach(input => {
-//       if (!input.checkValidity()) {
-//         allValid = false;
-//       }
-//     });
-    
-//     if (allValid) {
-//     if (count < 7) {
-     
-//     count++;
-//     counter = counter + 16// incrementing the progress
-    
-//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
-//       progress.style.width = `${counter}%`;
-//       display(); // update the section and showing the next one
-//     } else {
-//       alert("You've reached the limit"); // alert if counter more than 7
-//     }
-//     }
-//     };
-//     break;
-
-//     case 6 : {
-//       const experiencesSection = document.getElementById("experiencesSection");
-//       const inputs = experiencesSection.querySelectorAll("input");
-//     let allValid = true;
-//      // Check if all inputs are valid
-//      inputs.forEach(input => {
-//       if (!input.checkValidity()) {
-//         allValid = false;
-//       }
-//     });
-    
-//     if (allValid) {
-//     if (count < 7) {
-     
-//     count++;
-//     counter = counter + 16// incrementing the progress
-    
-//       // progress.style.width = `${(count * 14.2857143)}%`; // incrementing the progress
-//       progress.style.width = `${counter}%`;
-//       display(); // update the section and showing the next one
-//     } else {
-//       alert("You've reached the limit"); // alert if counter more than 7
-//     }
-//     }
-//     };
-//     break;
-// }
-
-
-
-  
-//   });
-
-// });
 
 next.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -235,7 +59,7 @@ next.forEach((button) => {
     if (allValid) {
       if (count < 7) {
         count++;
-        counter += 16; // Update progress bar and add 16 to counter
+        counter += 16.2; // Update progress bar and add 16 to counter
         progress.style.width = `${counter}%`;
         display(); // Update the visible section
       } else {
@@ -731,13 +555,13 @@ function displayCv(event) {
                   <li
                     class="mt-1 leading-normal text-gray-500 transition duration-100 ease-in hover:text-gray-700 text-md"
                   >
-                    <a href="		    https://veilmail.io/irish-geoff" class="group">
+                    < href="" class="group">
                       <span
                         class="mr-8 text-lg font-semibold text-gray-700 leading-snugish"
                       >
                         Email:
                       </span>
-		    https://veilmail.io/irish-geoff
+		    
             
                       <span
                         class="inline-block font-normal text-gray-500 transition duration-100 ease-in group-hover:text-gray-700 print:text-black"
@@ -745,12 +569,12 @@ function displayCv(event) {
                       ${email}
                         ↗
                       </span>
-                    </a>
+                    
                   </li>
                   <li
                     class="mt-1 leading-normal text-gray-500 transition duration-100 ease-in hover:text-gray-700 text-md"
                   >
-                    <a href="tel:+15109070654">
+                    <a>
                       <span
                         class="mr-5 text-lg font-semibold text-gray-700 leading-snugish"
                       >
@@ -784,23 +608,14 @@ function displayCv(event) {
 <section class="pb-0 mt-2 border-b-4 border-gray-300 first:mt-0 break-inside-avoid">
     <!-- To keep in the same column -->
     <section class="break-inside-avoid">
-        <h2
-            class="mb-2 text-lg font-bold tracking-widest text-gray-700 print:font-normal"
-        >
-            EDUCATION
-        </h2>
+        
         <!-- school --------------------------------------------------------------------------->
         <section class="mt-2 border-b-2 break-inside-avoid">
             <header>
                 <h1
                     class="text-lg font-semibold text-gray-700 leading-snugish"
                 >
-               education
-                </h1><h3
-                    class="text-lg font-semibold text-gray-700 leading-snugish"
-                >
-                ${schoolName}
-                </h3>
+              
                
             </header>
             <ul class="mt-2 list-disc list-inside text-gray-800 text-md">
@@ -817,7 +632,7 @@ function displayCv(event) {
             <h1>Education
             </h1>
             <ul class="mt-2 list-disc list-inside text-gray-800 text-md">
-            ${educations.map(education => `<li>${education.degree} - ${education.start}</li>`).join('')}
+            ${educations.map(education => `<li>${education}</li>`).join('')}
             </ul>
         </section>
 
@@ -827,29 +642,16 @@ function displayCv(event) {
                 <h3
                     class="flex-grow text-lg font-semibold text-gray-700 leading-snugish"
                 >
-                    Codify Academy
+                    
                 </h3>
-                <p class="leading-normal text-gray-500 text-md">
-                    2018 | Certificate
-                </p>
+                
             </header>
             <ul class="mt-2 list-disc list-inside text-gray-800 text-md">
-                <li>
-                    <span
-                        class="font-semibold text-md"
-                    >
-                        Subject:
-                    </span>
-                    Front End Development
-                </li>
-                <li>
-                    <span
-                        class="font-semibold text-md"
-                    >
+            ${certificats.map(certificat => `<li>${certificat}</li>`).join('')}
+            </ul>
                         Skills:
-                    </span>
-                    HTML, CSS, JavaScript, Web Development
-                </li>
+                  <ul class="mt-2 list-disc list-inside text-gray-800 text-md">
+            ${skills.map(skill => `<li>${skill}</li>`).join('')}
             </ul>
         </section>
     </section>
@@ -867,7 +669,7 @@ function displayCv(event) {
                 <section class="mb-0 break-inside-avoid">
                   <section class="mt-1 last:pb-1">
 										 <ul class=" -mb-1 font-bold leading-relaxed text-md -mr-1.6">
-                     ${certificats.map(certificat => `<li>${certificat}</li>`).join('')}
+                     
     </ul>
                   </section>
                 </section>
@@ -1013,11 +815,9 @@ function displayCv(event) {
           <div class="content">
             <div class="section">
               <h2>Experiences <br><span class="text-blue">professionelles</span></h2>
-           <ul>
-                        ${experiences.map(experience => `<li>${experience}</li>`).join('')}
-
-    
-              </ul>
+            <div>
+           ${experiences.map(experience => `<li>${experience}</li>`).join('')}
+              </div>
            
             <div class="section">
               <h2>education <br><span class="text-blue">& courses</span></h2>
